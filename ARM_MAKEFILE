@@ -1,0 +1,1 @@
+arm-linux-gcc -o arm_udp_linux  udp_client.c read_cmd.c my_debug.c  -L /opt/arm_linux_gcc/arm/usr/lib/ -I /opt/arm_linux_gcc/arm/usr/include  -lreadline -lpthread -lncurses

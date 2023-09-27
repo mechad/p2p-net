@@ -1,0 +1,27 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.65])
+AC_INIT(udp_client, v1.0, linczone@163.com)
+AM_INIT_AUTOMAKE(udp_client,v1.0)
+AC_CONFIG_SRCDIR([udp_client.c])
+AC_CONFIG_HEADERS(config.h)
+
+# Checks for programs.
+AC_PROG_CC
+CFLAGS += " -O2 -Wall"
+
+# Checks for libraries.
+
+# Checks for header files.
+AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h strings.h sys/socket.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+AC_CHECK_LIB([pthread], [pthread_create], , exit 1)
+AC_CHECK_LIB([readline], [readline], , exit 1)
+AC_FUNC_MALLOC
+AC_CHECK_FUNCS([alarm bzero dup2 inet_ntoa localtime_r memset socket])
+
+AC_OUTPUT(Makefile)
